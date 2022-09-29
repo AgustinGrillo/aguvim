@@ -56,7 +56,8 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<leader>F', vim.lsp.buf.formatting, bufopts)
-    vim.keymap.set('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", bufopts)
+    vim.keymap.set('n', '<leader>fda', "<cmd>Telescope diagnostics<cr>", bufopts)
+    vim.keymap.set('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", bufopts)
 
     -- Configure Highlighting
     require 'illuminate'.on_attach(client)
