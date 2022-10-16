@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>F', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<leader>fda', "<cmd>Telescope diagnostics<cr>", bufopts)
     vim.keymap.set('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", bufopts)
 
