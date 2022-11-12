@@ -74,4 +74,6 @@ return require('packer').startup(function()
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+  -- Latex
+  use 'lervag/vimtex'
 end)

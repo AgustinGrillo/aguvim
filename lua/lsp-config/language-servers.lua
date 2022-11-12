@@ -1,4 +1,4 @@
-local servers = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman' }
+local servers = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls' }
 
 -- Lsp installer (Beofre lspconfig setup)
 require("nvim-lsp-installer").setup {
