@@ -1,4 +1,4 @@
-local servers = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls' }
+local servers = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls', 'hls' }
 
 -- Lsp installer (Beofre lspconfig setup)
 require("nvim-lsp-installer").setup {
@@ -104,7 +104,16 @@ for _, lsp in pairs(servers) do
             },
             filetype = {"c", "cpp", "objc", "objcpp", "arduino", "ino"},
         }
-
+    elseif lsp == 'hls' then
+        require('lspconfig')[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {
+                -- This will be the default in neovim 0.7+
+                debounce_text_changes = 150,
+            },
+            filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        }
     else
         require('lspconfig')[lsp].setup {
             on_attach = on_attach,
