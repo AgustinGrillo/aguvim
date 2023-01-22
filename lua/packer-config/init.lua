@@ -9,7 +9,8 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   -- Collection of configurations for the built-in LSP client
   use 'neovim/nvim-lspconfig'
-  use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
   -- Autocompletion plugin
   use 'hrsh7th/nvim-cmp' 

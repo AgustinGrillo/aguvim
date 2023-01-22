@@ -3,8 +3,15 @@ local servers = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server'
 -- Avoid hls
 local servers2install = { 'pyright', 'clangd', 'sumneko_lua' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls' }
 
--- Lsp installer (Beofre lspconfig setup)
-require("nvim-lsp-installer").setup {
+-- Mason (Beofre lspconfig setup)
+require("mason").setup {
+    ui = {
+        icons = {
+            package_installed = "✓"
+        }
+    }
+}
+require("mason-lspconfig").setup {
     ensure_installed = servers2install,
 }
 
