@@ -16,7 +16,7 @@ vim.g.bufferline = {
   animation = true,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
-  auto_hide = false,
+  auto_hide = true,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
@@ -77,3 +77,14 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+
+--- Color
+vim.api.nvim_command("hi BufferCurrent     guibg=#375073 guifg=#FFFFFF")
+vim.api.nvim_command("hi BufferCurrentSign guibg=#375073 guifg=#FFFFFF")
+vim.api.nvim_command("hi BufferCurrentIcon guibg=#375073 guifg=#FFFFFF")
+vim.api.nvim_command("hi BufferCurrentMod  guibg=#375073 guifg=#FFFFFF")
+
+vim.api.nvim_command("hi BufferVisible     guibg=none guifg=#CCCCCC")
+vim.api.nvim_command("hi BufferVisibleSign guibg=none guifg=#CCCCCC")
+vim.api.nvim_command("hi BufferVisibleIcon guibg=none guifg=#CCCCCC")
+vim.api.nvim_command("hi BufferVisibleMod  guibg=none guifg=#CCCCCC")
