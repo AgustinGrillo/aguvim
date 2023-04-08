@@ -43,6 +43,8 @@ return require('packer').startup(function()
   use 'sharkdp/fd'
   use 'BurntSushi/ripgrep'
   use 'AckslD/nvim-neoclip.lua'
+  -- Vim select and input UI 
+  use 'stevearc/dressing.nvim'
   -- Comments
   use {
     'numToStr/Comment.nvim',
