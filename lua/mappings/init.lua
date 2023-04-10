@@ -4,6 +4,8 @@ local opts = {noremap = true, silent = true}
 
 vim.g.mapleader = ' '
 
+-- General maps
+map('v', '<C-c>', '"+y', opts)
 -- Nvim Tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 -- Telescope
