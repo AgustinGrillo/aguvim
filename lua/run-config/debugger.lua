@@ -1,11 +1,12 @@
 local dap = require('dap')
 local dapui = require('dapui')
 
+local user_name = os.getenv("USER") 
 
 -- Python Config
 dap.adapters.python = {
   type = 'executable';
-  command = '/home/agus/.virtualenvs/debugpy/bin/python';
+  command = '/home/'.. user_name ..'/.local/share/nvim/mason/packages/debugpy/venv/bin/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
