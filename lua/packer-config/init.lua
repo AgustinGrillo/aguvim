@@ -59,7 +59,7 @@ return require('packer').startup(function()
   use 'mfussenegger/nvim-dap'
   use "rcarriga/nvim-dap-ui"
   -- Github copilot
-  -- use "github/copilot.vim"
+  use "github/copilot.vim"
   -- Scrolling
   use 'karb94/neoscroll.nvim'
   -- vim-surround
