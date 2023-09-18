@@ -6,6 +6,7 @@ vim.g.mapleader = ' '
 
 -- General maps
 map('v', '<C-c>', '"+y', opts)
+map('t', '<Esc>', '<C-\\><C-n>', opts)
 -- Nvim Tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 -- Telescope
