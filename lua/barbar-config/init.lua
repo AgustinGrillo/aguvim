@@ -21,10 +21,10 @@ require('barbar').setup {
 }
 
 --- Color
-vim.api.nvim_command("hi BufferCurrent     guibg=#375073 guifg=#FFFFFF")
-vim.api.nvim_command("hi BufferCurrentSign guibg=#375073 guifg=#FFFFFF")
-vim.api.nvim_command("hi BufferCurrentIcon guibg=#375073 guifg=#FFFFFF")
-vim.api.nvim_command("hi BufferCurrentMod  guibg=#375073 guifg=#FFFFFF")
+vim.api.nvim_command("hi BufferCurrent     guibg=#89b4fa guifg=#1e1e2e")
+vim.api.nvim_command("hi BufferCurrentSign guibg=#89b4fa guifg=#1e1e2e")
+vim.api.nvim_command("hi BufferCurrentIcon guibg=#89b4fa guifg=#1e1e2e")
+vim.api.nvim_command("hi BufferCurrentMod  guibg=#89b4fa guifg=#1e1e2e")
 
 vim.api.nvim_command("hi BufferVisible     guibg=none guifg=#CCCCCC")
 vim.api.nvim_command("hi BufferVisibleSign guibg=none guifg=#CCCCCC")
