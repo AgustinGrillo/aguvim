@@ -1,4 +1,4 @@
-local servers = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls', 'hls' }
+local servers = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls', 'hls', 'cmake' }
 
 -- Avoid hls
 local servers2install = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls' }
