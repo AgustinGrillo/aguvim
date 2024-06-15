@@ -1,6 +1,6 @@
 require('settings')
 require('mappings')
-require('packer-config')
+require('lazy-config')
 require('colorschemes-config.catppuccin')
 require('nvim-treesitter-config')
 require('nvim-tree-config')
