@@ -15,7 +15,7 @@ map('n', '<leader>fw', ':Telescope live_grep <CR>', opts)
 map('n', '<leader>fc', ':Telescope grep_string <CR>', opts)
 map('n', '<leader>fy', ':Telescope neoclip <CR>', opts)
 map('n', '<leader>ft', ':TodoTelescope <CR>', opts)
--- Commenting
+-- Commenting // TODO: Remove
 vim.keymap.set('n', '<C-Bslash>', "v:count == 0 ? '<Plug>(comment_toggle_current_linewise)' : '<Plug>(comment_toggle_linewise_count)'", { expr = true, remap = true })
 vim.keymap.set('x', '<C-Bslash>', '<Plug>(comment_toggle_linewise_visual)')
 -- Window Navigation

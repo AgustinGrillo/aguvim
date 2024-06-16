@@ -74,8 +74,8 @@ local on_attach = function(client, bufnr)
     require 'illuminate'.on_attach(client)
     vim.api.nvim_command('let g:Illuminate_delay = 500')
     vim.api.nvim_set_keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
-    vim.api.nvim_set_keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
-    vim.api.nvim_set_keymap('n', '<a-o>', '<cmd>lua require"illuminate".toggle_pause()<cr>', {noremap=true})
+    vim.api.nvim_set_keymap('n', '<a-N>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
+    vim.api.nvim_set_keymap('n', '<a-p>', '<cmd>lua require"illuminate".toggle_pause()<cr>', {noremap=true})
 end
 
 
