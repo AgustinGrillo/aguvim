@@ -114,6 +114,10 @@ for _, lsp in pairs(servers) do
                 debounce_text_changes = 150,
             },
             filetype = {"c", "cpp", "objc", "objcpp", "arduino", "ino"},
+            cmd = {
+                "clangd",
+                "--offset-encoding=utf-16",
+            }
         }
     elseif lsp == 'hls' then
         require('lspconfig')[lsp].setup {

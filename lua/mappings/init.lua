@@ -55,3 +55,6 @@ map('n', '<leader>dt', ":lua require'dapui'.toggle() <CR>", opts)
 map('n', '<A-s>', ':DapStepOver <CR>', opts)
 map('n', '<A-i>', ':DapStepInto <CR>', opts)
 map('n', '<A-o>', ':DapStepOut <CR>', opts)
+map('n', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
+map('v', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
+

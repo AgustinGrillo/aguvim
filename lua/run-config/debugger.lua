@@ -38,7 +38,7 @@ dap.configurations.python = {
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/agus/programs/vscode-cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = '/home/agus/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
 dap.configurations.cpp = {
@@ -59,10 +59,22 @@ dap.configurations.cpp = {
       },
     },
   },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
 }
 
 -- UI Config
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', {text='▶', texthl='', linehl='', numhl=''})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
