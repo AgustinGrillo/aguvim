@@ -22,3 +22,4 @@ set.ttyfast = true                 -- Speed up scrolling in Vim
 set.termguicolors = true 
 set.scrolloff = 5
 set.updatetime =10
+vim.g.have_nerd_font = true
