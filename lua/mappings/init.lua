@@ -57,4 +57,6 @@ map('n', '<A-i>', ':DapStepInto <CR>', opts)
 map('n', '<A-o>', ':DapStepOut <CR>', opts)
 map('n', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
 map('v', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
+-- Lazygit
+map('n', '<leader>ll', ':LazyGit <CR>', opts)
 
