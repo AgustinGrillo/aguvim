@@ -1,7 +1,7 @@
-local servers = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls', 'hls', 'cmake' }
+local servers = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'ts_ls', 'eslint', 'marksman', 'jdtls', 'hls', 'cmake' }
 
 -- Avoid hls
-local servers2install = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'tsserver', 'eslint', 'marksman', 'jdtls' }
+local servers2install = { 'pyright', 'clangd', 'lua_ls' , 'arduino_language_server' , 'ts_ls', 'eslint', 'marksman', 'jdtls' }
 
 -- Mason (Beofre lspconfig setup)
 require("mason").setup {
