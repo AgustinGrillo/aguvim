@@ -14,6 +14,7 @@
 require('barbar').setup {
     -- Enable/disable auto-hiding the tab bar when there is a single buffer
     auto_hide = true,
+    tabpages = false,
 
     icons = {
         button = '',
