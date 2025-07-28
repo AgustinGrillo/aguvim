@@ -1,12 +1,12 @@
 local dap = require('dap')
 local dapui = require('dapui')
 
-local user_name = os.getenv("USER") 
+local home_dir = os.getenv("HOME") 
 
 -- Python Config
 dap.adapters.python = {
   type = 'executable';
-  command = '/home/'.. user_name ..'/.local/share/nvim/mason/packages/debugpy/venv/bin/python';
+  command = home_dir ..'/.local/share/nvim/mason/packages/debugpy/venv/bin/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
@@ -38,7 +38,7 @@ dap.configurations.python = {
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/agus/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = home_dir .. '/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
 dap.configurations.cpp = {
