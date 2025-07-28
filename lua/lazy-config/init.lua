@@ -71,7 +71,7 @@ return require('lazy').setup({
     'mfussenegger/nvim-dap',
     { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
     -- Github copilot
-    -- 'github/copilot.vim',
+    'github/copilot.vim',
     -- Local AI code completion
     {
         'milanglacier/minuet-ai.nvim',
@@ -106,4 +106,6 @@ return require('lazy').setup({
     },
     -- Latex
     'lervag/vimtex',
+    -- Tmux
+    "christoomey/vim-tmux-navigator",
 })

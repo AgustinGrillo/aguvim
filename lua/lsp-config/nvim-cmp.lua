@@ -2,9 +2,9 @@
 local luasnip = require 'luasnip'
 
 -- Copilot
--- vim.g.copilot_assume_mapped = true
--- vim.g.copilot_no_tab_map = true
--- vim.keymap.set('i', '<S-Tab>', "copilot#Accept('')", {expr=true, silent=true, replace_keycodes = false})
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_no_tab_map = true
+vim.keymap.set('i', '<S-Tab>', "copilot#Accept('')", {expr=true, silent=true, replace_keycodes = false})
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -48,7 +48,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'minuet' },
+        -- { name = 'minuet' },
     }, {
         { name = 'buffer' },
     })
