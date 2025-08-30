@@ -15,16 +15,18 @@ map('n', '<leader>fw', ':Telescope live_grep <CR>', opts)
 map('n', '<leader>fc', ':Telescope grep_string <CR>', opts)
 map('n', '<leader>fy', ':Telescope neoclip <CR>', opts)
 map('n', '<leader>ft', ':TodoTelescope <CR>', opts)
--- Commenting // TODO: Remove
-vim.keymap.set('n', '<C-Bslash>', "v:count == 0 ? '<Plug>(comment_toggle_current_linewise)' : '<Plug>(comment_toggle_linewise_count)'", { expr = true, remap = true })
-vim.keymap.set('x', '<C-Bslash>', '<Plug>(comment_toggle_linewise_visual)')
 -- Window Navigation (replaced by tmux navigator)
 -- map('n', '<A-h>', ':wincmd h <CR>', opts)
 -- map('n', '<A-l>', ':wincmd l <CR>', opts)
 -- map('n', '<A-k>', ':wincmd k <CR>', opts)
 -- map('n', '<A-j>', ':wincmd j <CR>', opts)
--- Window Managment
-map('n', '<A-w>v', ':vsplit <CR>', opts)
+-- Vim-tmux-navigator
+vim.g.tmux_navigator_no_mappings = 1
+vim.g.tmux_navigator_no_wrap = 1
+map('n', '<A-h>', '<cmd>TmuxNavigateLeft<cr>', opts)
+map('n', '<A-j>', '<cmd>TmuxNavigateDown<cr>', opts)
+map('n', '<A-k>', '<cmd>TmuxNavigateUp<cr>', opts)
+map('n', '<A-l>', '<cmd>TmuxNavigateRight<cr>', opts)
 -- Barbar (tabline)
 map('n', '<A-,>', ':BufferPrevious<CR>', opts)
 map('n', '<A-.>', ':BufferNext<CR>', opts)
@@ -57,11 +59,3 @@ map('n', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
 map('v', '<Leader>dh', ":lua require'dap.ui.widgets'.hover() <CR>", opts)
 -- Lazygit
 map('n', '<leader>ll', ':LazyGit <CR>', opts)
--- Vim-tmux-navigator
-vim.g.tmux_navigator_no_mappings = 1
-vim.g.tmux_navigator_no_wrap = 1
-map('n', '<A-h>', '<cmd>TmuxNavigateLeft<cr>', opts)
-map('n', '<A-j>', '<cmd>TmuxNavigateDown<cr>', opts)
-map('n', '<A-k>', '<cmd>TmuxNavigateUp<cr>', opts)
-map('n', '<A-l>', '<cmd>TmuxNavigateRight<cr>', opts)
-

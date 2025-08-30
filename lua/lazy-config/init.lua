@@ -28,7 +28,6 @@ return require('lazy').setup({
     'hrsh7th/nvim-cmp',
     -- LSP source for nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     -- Snippets source for nvim-cmp
     'saadparwaiz1/cmp_luasnip',
@@ -56,14 +55,7 @@ return require('lazy').setup({
     'BurntSushi/ripgrep',
     'AckslD/nvim-neoclip.lua',
     -- Vim select and input UI
-    'stevearc/dressing.nvim',
-    -- Comments
-    {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    },
+    'stevearc/dressing.nvim', -- TODO: replace w/ snacks.nvim
     -- Tabline
     'romgrk/barbar.nvim',
     -- Code Run and Debug

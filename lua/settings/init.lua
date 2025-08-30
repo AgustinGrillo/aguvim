@@ -24,3 +24,4 @@ set.scrolloff = 5
 set.updatetime = 10
 vim.g.have_nerd_font = true
 set.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20'
+set.winborder = 'rounded'
