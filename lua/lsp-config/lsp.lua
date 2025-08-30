@@ -14,8 +14,26 @@ vim.diagnostic.config({
         spacing = 4,
         prefix = '●',
     },
-    signs = { severity = { min = vim.diagnostic.severity.WARN } },
+    signs = {
+        severity = { min = vim.diagnostic.severity.WARN },
+        -- keep the sign text empty (no glyph in signcolumn)
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN]  = '',
+            [vim.diagnostic.severity.INFO]  = '',
+            [vim.diagnostic.severity.HINT]  = '',
+        },
+        -- linehl = {},
+        -- map severities to number-column highlight groups
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticLineNrError',
+            [vim.diagnostic.severity.WARN]  = 'DiagnosticLineNrWarn',
+            [vim.diagnostic.severity.INFO]  = 'DiagnosticLineNrInfo',
+            [vim.diagnostic.severity.HINT]  = 'DiagnosticLineNrHint',
+        },
+    },
 })
+
 -- Add floating window to display diagnostics
 vim.o.updatetime = 500
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -28,15 +46,6 @@ vim.api.nvim_set_hl(0, "DiagnosticLineNrError", { bg = sign_bg, fg = "#F38BA8", 
 vim.api.nvim_set_hl(0, "DiagnosticLineNrWarn", { bg = sign_bg, fg = "#F9E2AF", bold = true })
 vim.api.nvim_set_hl(0, "DiagnosticLineNrInfo", { bg = sign_bg, fg = "#A6E3A1", bold = true })
 vim.api.nvim_set_hl(0, "DiagnosticLineNrHint", { bg = sign_bg, fg = "#89B4FA", bold = true })
-
-vim.fn.sign_define('DiagnosticSignError',
-    { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = 'DiagnosticLineNrError' })
-vim.fn.sign_define('DiagnosticSignWarn',
-    { text = '', texthl = 'DiagnosticSignWarn', linehl = '', numhl = 'DiagnosticLineNrWarn' })
-vim.fn.sign_define('DiagnosticSignInfo',
-    { text = '', texthl = 'DiagnosticSignInfo', linehl = '', numhl = 'DiagnosticLineNrInfo' })
-vim.fn.sign_define('DiagnosticSignHint',
-    { text = '', texthl = 'DiagnosticSignHint', linehl = '', numhl = 'DiagnosticLineNrHint' })
 
 
 -- Disable the default keybinds
@@ -80,7 +89,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", 'Show All Diagnostics')
 
         -- Formatting
-        if client and client.supports_method('textDocument/formatting') then
+        if client and client:supports_method('textDocument/formatting') then
             map('n', '<leader>F', function() vim.lsp.buf.format({ async = true }) end, 'Format Buffer')
         end
 
