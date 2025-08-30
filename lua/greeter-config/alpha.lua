@@ -32,6 +32,7 @@ local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {}
 -- Set menu
 dashboard.section.buttons.val = {
+    { type = "padding", val = 8 },
     dashboard.button( "e",       "  > New file",  ":ene <BAR> startinsert <CR>"),
     dashboard.button( "SPC f f", "  > Find file", ":Telescope find_files<CR>"),
     dashboard.button( "SPC f r", "  > Recent",    ":Telescope oldfiles<CR>"),

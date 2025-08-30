@@ -56,14 +56,7 @@ return require('lazy').setup({
     'BurntSushi/ripgrep',
     'AckslD/nvim-neoclip.lua',
     -- Vim select and input UI
-    'stevearc/dressing.nvim',
-    -- Comments
-    {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    },
+    'stevearc/dressing.nvim', -- TODO: replace w/ snacks.nvim
     -- Tabline
     'romgrk/barbar.nvim',
     -- Code Run and Debug
