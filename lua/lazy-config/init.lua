@@ -28,7 +28,6 @@ return require('lazy').setup({
     'hrsh7th/nvim-cmp',
     -- LSP source for nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     -- Snippets source for nvim-cmp
     'saadparwaiz1/cmp_luasnip',

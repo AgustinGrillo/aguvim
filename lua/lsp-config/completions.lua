@@ -4,7 +4,7 @@ local luasnip = require 'luasnip'
 -- Copilot
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_no_tab_map = true
-vim.keymap.set('i', '<S-Tab>', "copilot#Accept('')", {expr=true, silent=true, replace_keycodes = false})
+vim.keymap.set('i', '<S-Tab>', "copilot#Accept('')", { expr = true, silent = true, replace_keycodes = false })
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -18,9 +18,9 @@ cmp.setup {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -49,7 +49,5 @@ cmp.setup {
         { name = 'luasnip' },
         { name = 'path' },
         -- { name = 'minuet' },
-    }, {
-        { name = 'buffer' },
     })
 }
