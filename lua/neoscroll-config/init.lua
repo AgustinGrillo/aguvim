@@ -1,5 +1,6 @@
 neoscroll = require('neoscroll')
 neoscroll.setup({
+  hide_cursor = false,
   easing = "linear"
 })
 
