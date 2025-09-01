@@ -100,4 +100,9 @@ return require('lazy').setup({
     'lervag/vimtex',
     -- Tmux
     "christoomey/vim-tmux-navigator",
+    -- Org
+    {
+        'nvim-orgmode/orgmode',
+        event = 'VeryLazy',
+    }
 })
