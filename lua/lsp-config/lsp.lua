@@ -125,4 +125,14 @@ vim.lsp.config('lua_ls', {
     },
 })
 
+-- Clangd
+vim.lsp.config('clangd', {
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--query-driver=/usr/bin/clang++,/usr/bin/clang,/usr/bin/g++,/usr/bin/gcc",
+    },
+})
+
 vim.lsp.enable(servers)
