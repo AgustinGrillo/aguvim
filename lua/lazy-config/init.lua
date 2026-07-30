@@ -73,13 +73,6 @@ return require('lazy').setup({
     { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
     -- Github copilot
     'github/copilot.vim',
-    -- Local AI code completion
-    {
-        'milanglacier/minuet-ai.nvim',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
     -- Scrolling
     'karb94/neoscroll.nvim',
     -- vim-surround
