@@ -12,6 +12,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local lazy_options = {
+    -- No configured plugin uses LuaRocks; avoid bootstrapping Lua through Hererocks.
+    rocks = {
+        enabled = false,
+    },
+}
+
 return require('lazy').setup({
     -- Color Scheme
     { 'catppuccin/nvim',      name = "catppuccin" },
@@ -42,7 +49,9 @@ return require('lazy').setup({
     -- Tree sitter
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
+        branch = 'main',
+        lazy = false,
+        build = ':TSUpdate',
     },
     -- Lualine
     'nvim-lualine/lualine.nvim',
@@ -51,8 +60,6 @@ return require('lazy').setup({
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
     'nvim-telescope/telescope-media-files.nvim',
-    'sharkdp/fd',
-    'BurntSushi/ripgrep',
     'AckslD/nvim-neoclip.lua',
     -- Vim select and input UI
     'stevearc/dressing.nvim', -- TODO: replace w/ snacks.nvim
@@ -76,34 +83,21 @@ return require('lazy').setup({
     -- vim-surround
     'tpope/vim-surround',
     -- Terminal toggler
-    { 'akinsho/toggleterm.nvim', version = "*", config = true },
+    { 'akinsho/toggleterm.nvim', version = "*" },
     -- Todo's manager
     'folke/todo-comments.nvim',
     -- Markdown plugin
     {
         "iamcco/markdown-preview.nvim",
         build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = {
-                "markdown" }
-        end,
         ft = { "markdown" },
     },
     -- Greeter
     'goolord/alpha-nvim',
     -- Autopairs
-    {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    },
+    "windwp/nvim-autopairs",
     -- Latex
     'lervag/vimtex',
     -- Tmux
     "christoomey/vim-tmux-navigator",
-    -- Org
-    {
-        "nvim-neorg/neorg",
-        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-        version = "*", -- Pin Neorg to the latest stable release
-    }
-})
+}, lazy_options)

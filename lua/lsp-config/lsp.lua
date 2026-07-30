@@ -10,6 +10,7 @@ require("mason-lspconfig").setup {
 vim.diagnostic.config({
     underline = { severity = vim.diagnostic.severity.ERROR },
     virtual_text = {
+        current_line = true,
         severity = { min = vim.diagnostic.severity.ERROR },
         spacing = 4,
         prefix = '●',
@@ -42,10 +43,10 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end,
 })
 -- Highlight number instead of icon
-vim.api.nvim_set_hl(0, "DiagnosticLineNrError", { bg = sign_bg, fg = "#F38BA8", bold = true })
-vim.api.nvim_set_hl(0, "DiagnosticLineNrWarn", { bg = sign_bg, fg = "#F9E2AF", bold = true })
-vim.api.nvim_set_hl(0, "DiagnosticLineNrInfo", { bg = sign_bg, fg = "#A6E3A1", bold = true })
-vim.api.nvim_set_hl(0, "DiagnosticLineNrHint", { bg = sign_bg, fg = "#89B4FA", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticLineNrError", { fg = "#F38BA8", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticLineNrWarn", { fg = "#F9E2AF", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticLineNrInfo", { fg = "#A6E3A1", bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticLineNrHint", { fg = "#89B4FA", bold = true })
 
 
 -- Disable the default keybinds
@@ -93,12 +94,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             map('n', '<leader>F', function() vim.lsp.buf.format({ async = true }) end, 'Format Buffer')
         end
 
-        -- Highlighting
-        require 'illuminate'.on_attach(client)
-        vim.api.nvim_command('let g:Illuminate_delay = 500')
-        map('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', 'Next Reference')
-        map('n', '<a-N>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Previous Reference')
-        map('n', '<a-p>', '<cmd>lua require"illuminate".toggle_pause()<cr>', 'Toggle Highlighting')
     end,
 })
 

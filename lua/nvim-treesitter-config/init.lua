@@ -1,17 +1,14 @@
-local configs = require('nvim-treesitter.configs')
+local treesitter = require('nvim-treesitter')
 
-configs.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "cpp", "python", "java", "haskell" },
+local languages = { 'c', 'lua', 'cpp', 'python', 'java', 'haskell' }
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-    disable = {},
-  },
+treesitter.setup()
+treesitter.install(languages)
 
-  indent = {
-    enable = true
-  }
-}
-
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = languages,
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
