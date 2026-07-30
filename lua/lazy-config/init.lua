@@ -22,10 +22,16 @@ local lazy_options = {
 return require('lazy').setup({
     -- Color Scheme
     { 'catppuccin/nvim',      name = "catppuccin" },
+    -- UI and quality-of-life tools
+    {
+        'folke/snacks.nvim',
+        priority = 1000,
+        lazy = false,
+    },
     -- Icons
-    'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     -- File Explorer
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     -- Collection of configurations for the built-in LSP client
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
@@ -45,7 +51,6 @@ return require('lazy').setup({
     -- Git plugins
     'lewis6991/gitsigns.nvim',
     'sindrets/diffview.nvim',
-    'kdheepak/lazygit.nvim',
     -- Tree sitter
     {
         'nvim-treesitter/nvim-treesitter',
@@ -56,13 +61,10 @@ return require('lazy').setup({
     -- Lualine
     'nvim-lualine/lualine.nvim',
     -- Telescope / FuzzyFinder
-    'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
     'nvim-telescope/telescope-media-files.nvim',
     'AckslD/nvim-neoclip.lua',
-    -- Vim select and input UI
-    'stevearc/dressing.nvim', -- TODO: replace w/ snacks.nvim
     -- Tabline
     'romgrk/barbar.nvim',
     -- Code Run and Debug
@@ -82,8 +84,6 @@ return require('lazy').setup({
     'karb94/neoscroll.nvim',
     -- vim-surround
     'tpope/vim-surround',
-    -- Terminal toggler
-    { 'akinsho/toggleterm.nvim', version = "*" },
     -- Todo's manager
     'folke/todo-comments.nvim',
     -- Markdown plugin
@@ -92,8 +92,6 @@ return require('lazy').setup({
         build = "cd app && npm install",
         ft = { "markdown" },
     },
-    -- Greeter
-    'goolord/alpha-nvim',
     -- Autopairs
     "windwp/nvim-autopairs",
     -- Latex
