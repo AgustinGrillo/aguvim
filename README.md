@@ -20,3 +20,5 @@ or Linux system.
 - [fd](https://github.com/sharkdp/fd), optional faster file finder for Snacks Picker
 - [ImageMagick](https://imagemagick.org/), required by Snacks Image for formats
   other than PNG
+- [Delta](https://github.com/dandavison/delta), required for syntax-highlighted
+  LazyGit diffs

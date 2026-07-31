@@ -36,7 +36,6 @@ vim.diagnostic.config({
 })
 
 -- Add floating window to display diagnostics
-vim.o.updatetime = 500
 vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
         vim.diagnostic.open_float(nil, { focusable = false })
@@ -86,8 +85,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Actions')
 
         -- Diagnostics
-        map('n', '<leader>fda', "<cmd>Telescope diagnostics<cr>", 'Show File Diagnostics')
-        map('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", 'Show All Diagnostics')
+        map('n', '<leader>fda', "<cmd>Telescope diagnostics<cr>", 'Show All Diagnostics')
+        map('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", 'Show File Diagnostics')
 
         -- Formatting
         if client and client:supports_method('textDocument/formatting') then
@@ -129,5 +128,3 @@ vim.lsp.config('clangd', {
         "--query-driver=/usr/bin/clang++,/usr/bin/clang,/usr/bin/g++,/usr/bin/gcc",
     },
 })
-
-vim.lsp.enable(servers)
