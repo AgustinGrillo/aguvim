@@ -63,7 +63,6 @@ return require('lazy').setup({
     -- Telescope / FuzzyFinder
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
-    'nvim-telescope/telescope-media-files.nvim',
     'AckslD/nvim-neoclip.lua',
     -- Tabline
     'romgrk/barbar.nvim',

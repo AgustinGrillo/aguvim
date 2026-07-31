@@ -1,3 +1,5 @@
+local snacks = require('snacks')
+
 return {
     formats = {
         label = { '%s', hl = 'SnacksDashboardKey' },
@@ -10,7 +12,9 @@ return {
                 key = '<leader>ff',
                 label = 'SPC f f',
                 desc = 'Find file',
-                action = ':Telescope find_files',
+                action = function()
+                    snacks.picker.files()
+                end,
             },
             {
                 icon = ' ',
