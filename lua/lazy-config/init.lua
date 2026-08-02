@@ -21,7 +21,8 @@ local lazy_options = {
 
 return require('lazy').setup({
     -- Color Scheme
-    { 'catppuccin/nvim',      name = "catppuccin" },
+    { 'catppuccin/nvim',  name = "catppuccin" },
+    { "rose-pine/neovim", name = "rose-pine" },
     -- UI and quality-of-life tools
     {
         'folke/snacks.nvim',
