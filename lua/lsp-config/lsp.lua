@@ -1,7 +1,5 @@
 local servers = { 'pyright', 'clangd', 'lua_ls', 'ts_ls', 'eslint', 'marksman', 'jdtls', 'cmake' }
 
--- Mason
-require("mason").setup {}
 require("mason-lspconfig").setup {
     ensure_installed = servers,
 }
@@ -125,6 +123,5 @@ vim.lsp.config('clangd', {
         "clangd",
         "--background-index",
         "--clang-tidy",
-        "--query-driver=/usr/bin/clang++,/usr/bin/clang,/usr/bin/g++,/usr/bin/gcc",
     },
 })

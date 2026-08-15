@@ -1,13 +1,10 @@
 local dap = require('dap')
 local dapui = require('dapui')
 
-local home_dir = os.getenv("HOME")
-
 -- Python Config
 dap.adapters.python = {
     type = 'executable',
-    command = home_dir .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python',
-    args = { '-m', 'debugpy.adapter' },
+    command = 'debugpy-adapter',
 }
 
 
@@ -42,7 +39,12 @@ dap.configurations.python = {
                 return conda_path .. '/bin/python'
             end
 
-            return '/usr/bin/python3' -- fallback
+            local python = vim.fn.exepath('python3')
+            if python == '' then
+                python = vim.fn.exepath('python')
+            end
+
+            return python ~= '' and python or 'python3'
         end,
     },
 }
@@ -51,10 +53,10 @@ dap.configurations.python = {
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = home_dir .. '/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+    command = 'OpenDebugAD7',
 }
 
-dap.configurations.cpp = {
+local cpp_configurations = {
     {
         name = "Launch file",
         type = "cppdbg",
@@ -72,19 +74,25 @@ dap.configurations.cpp = {
             },
         },
     },
-    {
+}
+
+local gdb = vim.fn.exepath('gdb')
+if gdb ~= '' then
+    table.insert(cpp_configurations, {
         name = 'Attach to gdbserver :1234',
         type = 'cppdbg',
         request = 'launch',
         MIMode = 'gdb',
         miDebuggerServerAddress = 'localhost:1234',
-        miDebuggerPath = '/usr/bin/gdb',
+        miDebuggerPath = gdb,
         cwd = '${workspaceFolder}',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-    },
-}
+    })
+end
+
+dap.configurations.cpp = cpp_configurations
 
 -- UI Config
 vim.fn.sign_define('DapBreakpoint', { text = '▶', texthl = '', linehl = '', numhl = '' })

@@ -12,8 +12,14 @@ or Linux system.
 
 - [Neovim](https://github.com/neovim/neovim) >= v0.12
 - [ripgrep](https://github.com/BurntSushi/ripgrep), required by Telescope's live grep
-- [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter) >= v0.26.1
 - [LazyGit](https://github.com/jesseduffield/lazygit)
+
+Install the Tree-sitter CLI in Neovim's isolated Mason directory after the
+plugins have been installed:
+
+```vim
+:MasonInstall tree-sitter-cli
+```
 
 ### Optional
 
@@ -22,3 +28,9 @@ or Linux system.
   other than PNG
 - [Delta](https://github.com/dandavison/delta), required for syntax-highlighted
   LazyGit diffs
+
+The debug adapters are also managed by Mason. Install only the ones you use:
+
+```vim
+:MasonInstall debugpy cpptools
+```
