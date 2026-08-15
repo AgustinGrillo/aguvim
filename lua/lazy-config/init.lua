@@ -84,7 +84,8 @@ return require('lazy').setup({
     -- Markdown plugin
     {
         "iamcco/markdown-preview.nvim",
-        build = "cd app && npm install",
+        build = "cd app && ./install.sh",
+        cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
         ft = { "markdown" },
     },
     -- Autopairs
