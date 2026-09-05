@@ -21,14 +21,18 @@ return {
                 key = '<leader>fr',
                 label = 'SPC f r',
                 desc = 'Recent',
-                action = ':Telescope oldfiles',
+                action = function()
+                    snacks.picker.recent()
+                end,
             },
             {
                 icon = ' ',
                 key = '<leader>fw',
                 label = 'SPC f w',
-                desc = 'Find word',
-                action = ':Telescope grep_string',
+                desc = 'Search text',
+                action = function()
+                    snacks.picker.grep()
+                end,
             },
             {
                 icon = ' ',

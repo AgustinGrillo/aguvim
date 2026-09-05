@@ -1,3 +1,4 @@
+local snacks = require('snacks')
 local servers = { 'pyright', 'clangd', 'lua_ls', 'ts_ls', 'eslint', 'marksman', 'jdtls', 'cmake' }
 
 require("mason-lspconfig").setup {
@@ -71,20 +72,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- Navigation and Information
-        map('n', '<leader>gd', "<cmd>Telescope lsp_definitions<cr>", 'Go to Definition')
+        map('n', '<leader>gd', function()
+            snacks.picker.lsp_definitions()
+        end, 'Go to Definition')
         map('n', '<leader>gD', vim.lsp.buf.declaration, 'Go to Declaration')
         map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('n', '<leader>gi', "<cmd>Telescope lsp_implementations<cr>", 'Go to Implementation')
-        map('n', '<leader>gr', "<cmd>Telescope lsp_references<cr>", 'Go to References')
-        map('n', '<leader>D', "<cmd>Telescope lsp_type_definitions<cr>", 'Type Definition')
+        map('n', '<leader>gi', function()
+            snacks.picker.lsp_implementations()
+        end, 'Go to Implementation')
+        map('n', '<leader>gr', function()
+            snacks.picker.lsp_references()
+        end, 'Go to References')
+        map('n', '<leader>D', function()
+            snacks.picker.lsp_type_definitions()
+        end, 'Type Definition')
 
         -- Refactoring and Actions
         map('n', '<leader>R', vim.lsp.buf.rename, 'Rename Symbol')
         map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Actions')
 
         -- Diagnostics
-        map('n', '<leader>fda', "<cmd>Telescope diagnostics<cr>", 'Show All Diagnostics')
-        map('n', '<leader>fdc', "<cmd>Telescope diagnostics bufnr=0<cr>", 'Show File Diagnostics')
+        map('n', '<leader>fda', function()
+            snacks.picker.diagnostics()
+        end, 'Show All Diagnostics')
+        map('n', '<leader>fdc', function()
+            snacks.picker.diagnostics_buffer()
+        end, 'Show File Diagnostics')
 
         -- Formatting
         if client and client:supports_method('textDocument/formatting') then

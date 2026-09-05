@@ -9,11 +9,8 @@ map('v', '<C-c>', '"+y', opts)
 -- map('t', '<Esc>', '<C-\\><C-n>', opts)
 -- Nvim Tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
--- Telescope
-map('n', '<leader>fw', ':Telescope live_grep <CR>', opts)
-map('n', '<leader>fc', ':Telescope grep_string <CR>', opts)
+-- Yank history (Telescope / Neoclip)
 map('n', '<leader>fy', ':Telescope neoclip <CR>', opts)
-map('n', '<leader>ft', ':TodoTelescope <CR>', opts)
 -- Window Resizing
 map('n', '<A-->', ':vertical resize -5<CR>', opts)
 map('n', '<A-=>', ':vertical resize +5<CR>', opts)

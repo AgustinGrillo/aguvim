@@ -11,7 +11,7 @@ or Linux system.
 ### Required
 
 - [Neovim](https://github.com/neovim/neovim) >= v0.12
-- [ripgrep](https://github.com/BurntSushi/ripgrep), required by Telescope's live grep
+- [ripgrep](https://github.com/BurntSushi/ripgrep), required by Snacks' text and TODO searches
 - [LazyGit](https://github.com/jesseduffield/lazygit)
 
 Install the Tree-sitter CLI in Neovim's isolated Mason directory after the
