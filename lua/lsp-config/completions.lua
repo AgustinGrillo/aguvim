@@ -7,18 +7,39 @@ local cmp = require 'cmp'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 cmp.setup {
+    preselect = cmp.PreselectMode.None,
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-n>'] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.abort()
+            else
+                cmp.complete()
+            end
+        end, { 'i' }),
+        ['<C-j>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                fallback()
+            end
+        end, { 'i' }),
+        ['<C-k>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                fallback()
+            end
+        end, { 'i' }),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = false,
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
